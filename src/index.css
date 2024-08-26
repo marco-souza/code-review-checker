@@ -60,12 +60,6 @@ code {
   margin-bottom: 6px;
 }
 
-.popover__close-button {
-  height: 16px;
-  width: 16px;
-  color: hsl(240 5% 34%);
-}
-
 .popover__title {
   font-size: 16px;
   font-weight: 500;

@@ -13,11 +13,11 @@ type Item = {
 const itemsToReview: string[] = [
   "Tests",
   "Security",
-  "Performance",
+  "Correctness",
+  "Error Handling",
   "Scalability",
-  "Reliability",
-  "Maintainability",
   "Readability",
+  "Maintainability",
 ];
 
 const [checklist, setChecklist] = createSignal<Item[]>(
@@ -34,14 +34,12 @@ const App: Component = () => {
       <Popover.Portal>
         <Popover.Content class="popover__content">
           <Popover.Arrow />
-          <div class="popover__header">
+          <div class="popover__header gap-2">
             <Popover.Title class="popover__title">
               Code Review Checker
             </Popover.Title>
 
-            <Popover.CloseButton class="popover__close-button">
-              X
-            </Popover.CloseButton>
+            <Popover.CloseButton class="btn btn-ghost"> X </Popover.CloseButton>
           </div>
 
           <Popover.Description class="popover__description grid gap-2">
