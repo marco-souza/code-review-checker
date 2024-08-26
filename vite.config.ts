@@ -1,16 +1,20 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
-import monkey from 'vite-plugin-monkey';
+import { defineConfig } from "vite";
+import solidPlugin from "vite-plugin-solid";
+import monkey from "vite-plugin-monkey";
 
 export default defineConfig({
   plugins: [
     solidPlugin(),
     monkey({
-      entry: 'src/index.tsx',
+      entry: "src/index.tsx",
       userscript: {
-        icon: 'https://vitejs.dev/logo.svg',
-        namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www.google.com/'],
+        icon: "https://vitejs.dev/logo.svg",
+        namespace: "npm/vite-plugin-monkey",
+        match: [
+          "https://kobalte.dev/*",
+          "https://github.com/*/*/pull/*",
+          "https://daisyui.com/*",
+        ],
       },
     }),
   ],
