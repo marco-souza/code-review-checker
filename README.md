@@ -1,6 +1,6 @@
 # Tamper code-review-checker
 
-This is a Tampermonkey script which gives your a code review checklist for your pull requests.
+Tampermonkey script which gives you a code review checklist for your pull requests.
 
 Features
 - check items you already review
@@ -9,7 +9,7 @@ Features
 ## Installation
 
 1. Install Tampermonkey
-2. Create script (develop or production)
+2. Create a script (develop or production)
 
 ### Building a dev script
 
@@ -32,4 +32,5 @@ bun preview
 2. Open the review button
 3. Check the items you review
 
+https://github.com/user-attachments/assets/01618416-79aa-42cd-9d26-abc6d90e41af
 
