@@ -4,6 +4,9 @@ import { Popover } from "@kobalte/core/popover";
 import { Button } from "@kobalte/core/button";
 import { classes } from "./utils";
 
+import clippyCheck from "../static/clippy-check.gif";
+import clippyJump from "../static/clippy-jump.gif";
+
 type Item = {
   checked: boolean;
   name: string;
@@ -29,7 +32,13 @@ const isAllChecked = () => checklist().every((item) => item.checked);
 const App: Component = () => {
   return (
     <Popover>
-      <Popover.Trigger class="btn btn-primary">Review</Popover.Trigger>
+      <Popover.Trigger>
+        <img
+          src={!isAllChecked() ? clippyJump : clippyCheck}
+          alt="Code Review"
+          class="w-20 h-20"
+        />
+      </Popover.Trigger>
 
       <Popover.Portal>
         <Popover.Content class="popover__content">
@@ -62,16 +71,6 @@ const App: Component = () => {
                 </div>
               )}
             </For>
-            <Button
-              class={classes(
-                "btn btn-primary btn-sm w-full",
-                !isAllChecked() && "btn-disabled",
-              )}
-              disabled={!isAllChecked()}
-              onClick={() => alert("Review done! ✅")}
-            >
-              Done ✅
-            </Button>
           </Popover.Description>
         </Popover.Content>
       </Popover.Portal>
