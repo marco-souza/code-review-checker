@@ -6,7 +6,7 @@
   "scripts": {
     "fmt": "deno fmt",
     "dev": "vite",
-    "build": "vite build",
+    "build": "STAGE=prod vite build",
     "preview": "vite preview"
   },
   "devDependencies": {

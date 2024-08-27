@@ -14,6 +14,8 @@ const matchStageMap = {
   "development": [
     "https://kobalte.dev/*",
     "https://daisyui.com/*",
+    "https://tailwindcss.com/*",
+    "https://*",
     ...productionTargets,
   ],
   "production": productionTargets,

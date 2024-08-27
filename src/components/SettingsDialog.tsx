@@ -8,7 +8,7 @@ export function SettingsDialog() {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay class="modal" />
+        <Dialog.Overlay class="fixed inset-0 z-50 bg-gray-900 bg-opacity-80 animate-fade-in" />
 
         <Dialog.Content>
           <div class="modal-box">

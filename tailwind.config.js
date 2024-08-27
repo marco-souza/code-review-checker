@@ -4,7 +4,24 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // that is animation class
+      animation: {
+        "fade-in": "fadeIn 200ms ease-in-out",
+        "fade-out": "fadeOut 200ms ease-in-out",
+      },
+      // that is actual animation
+      keyframes: (theme) => ({
+        fadeIn: {
+          "0%": { backgroundColor: theme("colors.transparent") },
+          "100%": { backgroundColor: theme("colors.gray.800") },
+        },
+        fadeOut: {
+          "0%": { backgroundColor: theme("colors.gray.800") },
+          "100%": { backgroundColor: theme("colors.transparent") },
+        },
+      }),
+    },
   },
   daisyui: {
     themes: ["dark"],
