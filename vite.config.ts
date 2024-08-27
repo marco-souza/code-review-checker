@@ -2,6 +2,23 @@ import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import monkey from "vite-plugin-monkey";
 
+const stage = process.env.STAGE?.startsWith("prod")
+  ? "production"
+  : "development" as const;
+
+const productionTargets = [
+  "https://github.com/*/*/pull/*",
+];
+
+const matchStageMap = {
+  "development": [
+    "https://kobalte.dev/*",
+    "https://daisyui.com/*",
+    ...productionTargets,
+  ],
+  "production": productionTargets,
+};
+
 export default defineConfig({
   plugins: [
     solidPlugin(),
@@ -10,11 +27,7 @@ export default defineConfig({
       userscript: {
         icon: "https://vitejs.dev/logo.svg",
         namespace: "npm/vite-plugin-monkey",
-        match: [
-          "https://kobalte.dev/*",
-          "https://github.com/*/*/pull/*",
-          "https://daisyui.com/*",
-        ],
+        match: matchStageMap[stage],
       },
     }),
   ],
