@@ -14,9 +14,7 @@ const App: Component = () => {
       </Popover.Trigger>
 
       <Popover.Portal>
-        <Popover.Content
-          class="z-50 rounded-md p-4 flex flex-col gap-3 dark:bg-gray-700 bg-gray-100 shadow-xl"
-        >
+        <Popover.Content class="z-50 rounded-md p-4 flex flex-col gap-3 dark:bg-gray-700 bg-gray-100 shadow-xl">
           <Popover.Arrow />
 
           <PopoverHeader />
@@ -24,7 +22,6 @@ const App: Component = () => {
           <Popover.Description class="grid gap-2">
             <PopoverBody />
           </Popover.Description>
-
         </Popover.Content>
       </Popover.Portal>
     </Popover>
@@ -62,16 +59,14 @@ const PopoverBody: Component = () => {
 const PopoverHeader: Component = () => {
   return (
     <div class="flex gap-4 align-middle justify-center">
-      <Popover.Title
-        class="text-base font-medium text-gray-900"
-      >
+      <Popover.Title class="text-base font-medium text-gray-900">
         Code Review Checker
       </Popover.Title>
 
       <Popover.CloseButton class="btn btn-ghost btn-xs">X</Popover.CloseButton>
     </div>
-  )
-}
+  );
+};
 
 const PopoverIcon: Component = () => {
   return (
@@ -80,5 +75,5 @@ const PopoverIcon: Component = () => {
       alt="Code Review"
       class="h-16"
     />
-  )
-}
+  );
+};

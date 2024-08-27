@@ -21,4 +21,3 @@ export const [checklist, setChecklist] = createSignal<Item[]>(
 );
 
 export const isAllChecked = () => checklist().every((item) => item.checked);
-
