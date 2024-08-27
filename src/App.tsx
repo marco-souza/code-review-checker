@@ -67,7 +67,9 @@ const PopoverHeader: Component = () => {
       <div>
         <SettingsDialog />
 
-        <Popover.CloseButton class="btn btn-ghost btn-xs" title="Close">X</Popover.CloseButton>
+        <Popover.CloseButton class="btn btn-ghost btn-xs" title="Close">
+          X
+        </Popover.CloseButton>
       </div>
     </div>
   );
