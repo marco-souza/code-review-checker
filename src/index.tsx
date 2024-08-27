@@ -9,11 +9,15 @@ render(
   (() => {
     const app = document.createElement("div");
 
-    app.style.flex = "1";
-    app.style.position = "fixed";
-    app.style.bottom = "20px";
-    app.style.right = "20px";
-    app.style.zIndex = "9999";
+    app.classList.add(
+      "bg-none",
+      "p-8",
+      "flex-1",
+      "fixed",
+      "bottom-0",
+      "right-2",
+      "z-9999",
+    );
 
     document.body.append(app);
     return app;

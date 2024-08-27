@@ -1,8 +1,6 @@
-import { type Component, createSignal, For, Show } from "solid-js";
+import { type Component, createSignal, For } from "solid-js";
 
 import { Popover } from "@kobalte/core/popover";
-import { Button } from "@kobalte/core/button";
-import { classes } from "./utils";
 
 import clippyCheck from "../static/clippy-check.gif";
 import clippyJump from "../static/clippy-jump.gif";
@@ -35,8 +33,10 @@ const App: Component = () => {
       <Popover.Trigger>
         <img
           src={!isAllChecked() ? clippyJump : clippyCheck}
+          width="32"
+          height="32"
           alt="Code Review"
-          class="w-20 h-20"
+          class="w-8 h-8"
         />
       </Popover.Trigger>
 
@@ -48,7 +48,7 @@ const App: Component = () => {
               Code Review Checker
             </Popover.Title>
 
-            <Popover.CloseButton class="btn btn-ghost"> X </Popover.CloseButton>
+            <Popover.CloseButton class="btn btn-ghost">X</Popover.CloseButton>
           </div>
 
           <Popover.Description class="popover__description grid gap-2">
