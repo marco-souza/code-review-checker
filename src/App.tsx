@@ -5,6 +5,7 @@ import { Popover } from "@kobalte/core/popover";
 import clippyCheck from "../static/clippy-check.gif";
 import clippyJump from "../static/clippy-jump.gif";
 import { checklist, isAllChecked, setChecklist } from "./domain/checklist";
+import { SettingsDialog } from "./components/SettingsDialog";
 
 const App: Component = () => {
   return (
@@ -63,7 +64,11 @@ const PopoverHeader: Component = () => {
         Code Review Checker
       </Popover.Title>
 
-      <Popover.CloseButton class="btn btn-ghost btn-xs">X</Popover.CloseButton>
+      <div>
+        <SettingsDialog />
+
+        <Popover.CloseButton class="btn btn-ghost btn-xs" title="Close">X</Popover.CloseButton>
+      </div>
     </div>
   );
 };
