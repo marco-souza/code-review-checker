@@ -1,77 +1,30 @@
-import { type Component, createSignal, For } from "solid-js";
+import { type Component, For } from "solid-js";
 
 import { Popover } from "@kobalte/core/popover";
 
 import clippyCheck from "../static/clippy-check.gif";
 import clippyJump from "../static/clippy-jump.gif";
-
-type Item = {
-  checked: boolean;
-  name: string;
-};
-
-// list of important things to check in a code review
-const itemsToReview: string[] = [
-  "Tests",
-  "Security",
-  "Correctness",
-  "Error Handling",
-  "Scalability",
-  "Readability",
-  "Maintainability",
-];
-
-const [checklist, setChecklist] = createSignal<Item[]>(
-  itemsToReview.map((name) => ({ name, checked: false }) as Item),
-);
-
-const isAllChecked = () => checklist().every((item) => item.checked);
+import { checklist, isAllChecked, setChecklist } from "./domain/checklist";
 
 const App: Component = () => {
   return (
-    <Popover>
+    <Popover data-theme="dark">
       <Popover.Trigger>
-        <img
-          src={!isAllChecked() ? clippyJump : clippyCheck}
-          width="32"
-          height="32"
-          alt="Code Review"
-          class="w-8 h-8"
-        />
+        <PopoverIcon />
       </Popover.Trigger>
 
       <Popover.Portal>
-        <Popover.Content class="popover__content">
+        <Popover.Content
+          class="z-50 rounded-md p-4 flex flex-col gap-3 dark:bg-gray-700 bg-gray-100 shadow-xl"
+        >
           <Popover.Arrow />
-          <div class="popover__header gap-2">
-            <Popover.Title class="popover__title">
-              Code Review Checker
-            </Popover.Title>
 
-            <Popover.CloseButton class="btn btn-ghost">X</Popover.CloseButton>
-          </div>
+          <PopoverHeader />
 
-          <Popover.Description class="popover__description grid gap-2">
-            <For each={checklist()}>
-              {(item, idx) => (
-                <div
-                  class="popover__item flex gap-1"
-                  onClick={() =>
-                    setChecklist((list) =>
-                      list.map((i, index) =>
-                        index !== idx() ? i : { ...i, checked: !i.checked }
-                      )
-                    )}
-                >
-                  <input
-                    type="checkbox"
-                    checked={item.checked}
-                  />
-                  <label>{item.name}</label>
-                </div>
-              )}
-            </For>
+          <Popover.Description class="grid gap-2">
+            <PopoverBody />
           </Popover.Description>
+
         </Popover.Content>
       </Popover.Portal>
     </Popover>
@@ -79,3 +32,53 @@ const App: Component = () => {
 };
 
 export default App;
+
+const PopoverBody: Component = () => {
+  return (
+    <For each={checklist()}>
+      {(item, idx) => (
+        <div
+          class="flex gap-1"
+          onClick={() =>
+            setChecklist((list) =>
+              list.map((i, index) =>
+                index !== idx() ? i : { ...i, checked: !i.checked }
+              )
+            )}
+        >
+          <input
+            type="checkbox"
+            class="checkbox"
+            checked={item.checked}
+          />
+
+          <label>{item.name}</label>
+        </div>
+      )}
+    </For>
+  );
+};
+
+const PopoverHeader: Component = () => {
+  return (
+    <div class="flex gap-4 align-middle justify-center">
+      <Popover.Title
+        class="text-base font-medium text-gray-900"
+      >
+        Code Review Checker
+      </Popover.Title>
+
+      <Popover.CloseButton class="btn btn-ghost btn-xs">X</Popover.CloseButton>
+    </div>
+  )
+}
+
+const PopoverIcon: Component = () => {
+  return (
+    <img
+      src={!isAllChecked() ? clippyJump : clippyCheck}
+      alt="Code Review"
+      class="h-16"
+    />
+  )
+}
