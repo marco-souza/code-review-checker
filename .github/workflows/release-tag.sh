@@ -8,7 +8,7 @@ echo Repo tag found: $tag_version
 # exit if tag already exists
 if [ -n "$tag_version" ]; then
   echo "Tag $version already exists"
-  exit 1
+  exit 0
 fi
 
 echo "Creating tag $version"
