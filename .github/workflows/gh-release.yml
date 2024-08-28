@@ -29,5 +29,4 @@ jobs:
         run: sh .github/workflows/release-tag.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
 
