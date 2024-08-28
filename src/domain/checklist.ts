@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js";
 
-type Item = {
+export type Item = {
   checked: boolean;
   name: string;
 };
@@ -16,8 +16,17 @@ const itemsToReview: string[] = [
   "Maintainability",
 ];
 
-export const [checklist, setChecklist] = createSignal<Item[]>(
+const [checklist, setChecklist] = createSignal<Item[]>(
   itemsToReview.map((name) => ({ name, checked: false }) as Item),
 );
 
-export const isAllChecked = () => checklist().every((item) => item.checked);
+const isAllChecked = () => checklist().every((item) => item.checked);
+
+const toggleCheck = (idx: number) => {
+  setChecklist((list) => {
+    list[idx].checked = !list[idx].checked;
+    return [...list];
+  });
+};
+
+export { checklist, isAllChecked, toggleCheck };

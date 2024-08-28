@@ -4,8 +4,13 @@ import { Popover } from "@kobalte/core/popover";
 
 import clippyCheck from "../static/clippy-check.gif";
 import clippyJump from "../static/clippy-jump.gif";
-import { checklist, isAllChecked, setChecklist } from "./domain/checklist";
 import { SettingsDialog } from "./components/SettingsDialog";
+import {
+  type Item,
+  checklist,
+  isAllChecked,
+  toggleCheck,
+} from "./domain/checklist";
 
 const App: Component = () => {
   return (
@@ -34,23 +39,22 @@ export default App;
 const PopoverBody: Component = () => {
   return (
     <For each={checklist()}>
-      {(item, idx) => (
-        <div
-          class="flex gap-1"
-          onClick={() =>
-            setChecklist((list) =>
-              list.map((i, index) =>
-                index !== idx() ? i : { ...i, checked: !i.checked },
-              ),
-            )
-          }
-        >
-          <input type="checkbox" class="checkbox" checked={item.checked} />
-
-          <label>{item.name}</label>
-        </div>
-      )}
+      {(item, idx) => <PopoverItem id={idx()} item={item} />}
     </For>
+  );
+};
+
+const PopoverItem: Component<{ id: number; item: Item }> = ({ id, item }) => {
+  return (
+    <div
+      class="flex gap-1"
+      onClick={() => toggleCheck(id)}
+      onKeyPress={() => toggleCheck(id)}
+    >
+      <input type="checkbox" class="checkbox" checked={item.checked} />
+
+      <label>{item.name}</label>
+    </div>
   );
 };
 
