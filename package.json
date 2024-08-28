@@ -8,6 +8,7 @@
     "lint": " bunx biome lint --write .",
     "fmt": "bunx biome format --write .",
     "check": "bunx biome check --write .",
+    "release": "npm version ${1:-patch}",
     "dev": "vite",
     "build": "STAGE=prod vite build",
     "preview": "vite preview"
