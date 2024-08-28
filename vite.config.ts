@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
 import solidPlugin from "vite-plugin-solid";
@@ -20,6 +21,12 @@ const matchStageMap = {
 };
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "/src"),
+      "#": path.resolve(__dirname, "/"),
+    },
+  },
   plugins: [
     solidPlugin(),
     monkey({
