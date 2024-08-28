@@ -40,15 +40,12 @@ const PopoverBody: Component = () => {
           onClick={() =>
             setChecklist((list) =>
               list.map((i, index) =>
-                index !== idx() ? i : { ...i, checked: !i.checked }
-              )
-            )}
+                index !== idx() ? i : { ...i, checked: !i.checked },
+              ),
+            )
+          }
         >
-          <input
-            type="checkbox"
-            class="checkbox"
-            checked={item.checked}
-          />
+          <input type="checkbox" class="checkbox" checked={item.checked} />
 
           <label>{item.name}</label>
         </div>

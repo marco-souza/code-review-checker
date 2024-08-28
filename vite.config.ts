@@ -1,24 +1,22 @@
 import { defineConfig } from "vite";
-import solidPlugin from "vite-plugin-solid";
 import monkey from "vite-plugin-monkey";
+import solidPlugin from "vite-plugin-solid";
 
 const stage = process.env.STAGE?.startsWith("prod")
   ? "production"
-  : "development" as const;
+  : ("development" as const);
 
-const productionTargets = [
-  "https://github.com/*/*/pull/*",
-];
+const productionTargets = ["https://github.com/*/*/pull/*"];
 
 const matchStageMap = {
-  "development": [
+  development: [
     "https://kobalte.dev/*",
     "https://daisyui.com/*",
     "https://tailwindcss.com/*",
     "https://*",
     ...productionTargets,
   ],
-  "production": productionTargets,
+  production: productionTargets,
 };
 
 export default defineConfig({
