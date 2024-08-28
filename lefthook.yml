@@ -2,7 +2,9 @@ pre-commit:
   commands:
     package-check:
       tags: biome check
-      run: bun check
+      run: bun run check
+
+
 
 pre-push:
   parallel: true
