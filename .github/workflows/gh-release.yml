@@ -20,8 +20,9 @@ jobs:
       - name: Install dependencies
         run: bun i && bun run build
 
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: 'dist/*'
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create release with tag
+        run: gh release create ${{ github.ref }} -t ${{ github.ref }} -n "Release ${{ github.ref }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
 
