@@ -5,6 +5,7 @@ on:
     paths:
       - package.json
       - .github/workflows/gh-release.yml
+      - .github/workflows/release-tag.sh
 
 jobs:
   gh-release:
@@ -25,19 +26,8 @@ jobs:
         run: bun i && bun run build
 
       - name: Create release with tag
+        run: sh .github/workflows/release-tag.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
-        run: |
-          version=$(cat package.json | jq -r '.version')
-          tag_version=$(git tag -l | grep $version)
-          # exit if tag already exists
-          if [ -n "$tag_version" ]; then
-            echo "Tag $version already exists"
-            exit 1
-          fi
-
-          git tag $version
-          git push --tags
-          gh release create -t $version -n "Release $version" $version dist/*
 
