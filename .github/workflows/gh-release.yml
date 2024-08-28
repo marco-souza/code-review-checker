@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: bun i && bun run build
 
-      - uses: pipe-cd/actions-gh-release@v2.3.4
+      - uses: ncipollo/release-action@v1
         with:
-          release_file: 'dist/*'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'dist/*'
+
