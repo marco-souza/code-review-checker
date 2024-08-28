@@ -25,6 +25,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
         run: |
+          apt update && apt install jq cat
           version=$(cat package.json | jq -r '.version')
           tag_version=$(git tag -l | grep $version)
           # exit if tag already exists
