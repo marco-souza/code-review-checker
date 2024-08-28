@@ -15,9 +15,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: System dependencies
-        run: sudo apt update && sudo apt install jq git grep
-
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
