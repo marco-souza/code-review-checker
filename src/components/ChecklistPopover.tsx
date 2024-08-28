@@ -9,8 +9,8 @@ import {
   isAllChecked,
   toggleCheck,
 } from "@/domain/checklist";
-import clippyCheck from "#/static/clippy-check.gif";
-import clippyJump from "#/static/clippy-jump.gif";
+import clippyCheck from "#/static/clippy-check.gif?base64";
+import clippyJump from "#/static/clippy-jump.gif?base64";
 
 const PopoverBody: Component = () => {
   return (

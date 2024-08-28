@@ -5,7 +5,7 @@ import solidPlugin from "vite-plugin-solid";
 
 const stage = process.env.STAGE?.startsWith("prod")
   ? "production"
-  : ("development" as const);
+  : "development";
 
 const productionTargets = ["https://github.com/*/*/pull/*"];
 
