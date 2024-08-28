@@ -2,8 +2,6 @@ import { type Component, For } from "solid-js";
 
 import { Popover } from "@kobalte/core/popover";
 
-import clippyCheck from "#/static/clippy-check.gif";
-import clippyJump from "#/static/clippy-jump.gif";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import {
   type Item,
@@ -11,6 +9,8 @@ import {
   isAllChecked,
   toggleCheck,
 } from "@/domain/checklist";
+import clippyCheck from "#/static/clippy-check.gif";
+import clippyJump from "#/static/clippy-jump.gif";
 
 const PopoverBody: Component = () => {
   return (

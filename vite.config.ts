@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { defineConfig } from "vite";
 import monkey from "vite-plugin-monkey";
 import solidPlugin from "vite-plugin-solid";
