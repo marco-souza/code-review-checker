@@ -21,6 +21,7 @@ const matchStageMap = {
 };
 
 export default defineConfig({
+  assetsInclude: ["./src/static/**"],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "/src"),

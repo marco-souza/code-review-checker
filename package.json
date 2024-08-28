@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.6",
   "type": "module",
-  "main": "dist/code-review-checker.js",
   "scripts": {
     "lint": " bunx biome lint --write .",
     "fmt": "bunx biome format --write .",
