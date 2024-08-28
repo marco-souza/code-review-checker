@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  gh-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun i && bun run build
+
+      - uses: pipe-cd/actions-gh-release@v2.3.4
+        with:
+          release_file: 'dist/*'
+          token: ${{ secrets.GITHUB_TOKEN }}
