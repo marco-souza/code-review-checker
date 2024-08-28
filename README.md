@@ -2,6 +2,7 @@
 
 [![Quality Gateway](https://github.com/marco-souza/code-review-checker/actions/workflows/quality-gateway.yml/badge.svg)](https://github.com/marco-souza/code-review-checker/actions/workflows/quality-gateway.yml)
 [![Release](https://github.com/marco-souza/code-review-checker/actions/workflows/gh-release.yml/badge.svg)](https://github.com/marco-souza/code-review-checker/actions/workflows/gh-release.yml)
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev)
 
 Tampermonkey script which gives you a code review checklist for your pull
 requests.
