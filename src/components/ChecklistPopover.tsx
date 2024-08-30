@@ -5,9 +5,9 @@ import { Popover } from "@kobalte/core/popover";
 import { SettingsDialog } from "@/components/SettingsDialog";
 import {
   checklist,
+  getItem,
   isAllChecked,
   toggleCheck,
-  getItem,
 } from "@/domain/checklist";
 import clippyCheck from "@/static/clippy-check.gif";
 import clippyJump from "@/static/clippy-jump.gif";
