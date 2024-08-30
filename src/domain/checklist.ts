@@ -29,4 +29,6 @@ const toggleCheck = (idx: number) => {
   });
 };
 
-export { checklist, isAllChecked, toggleCheck };
+const getItem = (idx: number) => checklist()[idx];
+
+export { checklist, isAllChecked, toggleCheck, getItem };
