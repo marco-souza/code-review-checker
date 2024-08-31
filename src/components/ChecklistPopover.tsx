@@ -37,7 +37,7 @@ const PopoverBody: Component = () => {
 const PopoverHeader: Component = () => {
   return (
     <div class="flex gap-4 align-middle justify-center">
-      <Popover.Title class="text-base font-medium text-gray-900">
+      <Popover.Title class="text-md font-medium">
         Code Review Checker
       </Popover.Title>
 

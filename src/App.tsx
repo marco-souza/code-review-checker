@@ -15,7 +15,7 @@ const App: Component = () => {
       </Popover.Trigger>
 
       <Popover.Portal>
-        <Popover.Content class="z-50 rounded-md p-4 flex flex-col gap-3 dark:bg-gray-700 bg-gray-100 shadow-xl">
+        <Popover.Content class="z-50 rounded-md p-4 flex flex-col gap-4 dark:bg-gray-700 bg-gray-100 shadow-xl">
           <Popover.Arrow />
 
           <PopoverHeader />

@@ -11,7 +11,7 @@ export function SettingsDialog() {
         <div class="fixed inset-0 z-50 flex items-center justify-center">
           <Dialog.Content class="modal-box grid gap-4">
             <div class="flex flex-row justify-between">
-              <Dialog.Title class="h1 text-lg">
+              <Dialog.Title class="h2 text-lg">
                 Code Review Settings
               </Dialog.Title>
               <Dialog.CloseButton class="left">X</Dialog.CloseButton>
